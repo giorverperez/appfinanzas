@@ -1,20 +1,30 @@
+import 'package:appfinanzas/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import './auth/auth_screen.dart';
+import './home/home_screen.dart';
 
 void main() {
-  runApp(FinanzasApp());
+  runApp(const FinanzasApp());
 }
 
 class FinanzasApp extends StatelessWidget {
+  const FinanzasApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthScreen(),
+      home: const AuthScreen(),
+      routes: {
+        '/home': (context) => const HomeScreen(),
+      },
     );
   }
 }
 
 class AuthScreen extends StatefulWidget {
+  const AuthScreen({super.key});
+
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }

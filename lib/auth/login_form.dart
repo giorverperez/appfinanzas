@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,11 +11,11 @@ class LoginForm extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.network(
-            'https://your-image-url.com/logo.png', // Cambia esta URL a la del logo que desees usar
+            'https://www.google.com/imgres?q=uleam%20logo&imgurl=https%3A%2F%2Fwww.uleam.edu.ec%2Fwp-content%2Fuploads%2F2012%2F09%2FLOGO-ULEAM-HORIZONTAL.png&imgrefurl=https%3A%2F%2Fwww.uleam.edu.ec%2Flogos-uleam%2F&docid=j4MbHXESh-FjbM&tbnid=WLCZJxw7QEGc7M&vet=12ahUKEwjKqevl7MiJAxW6SjABHSeWNsMQM3oECBcQAA..i&w=1834&h=1577&hcb=2&ved=2ahUKEwjKqevl7MiJAxW6SjABHSeWNsMQM3oECBcQAA', // Cambia esta URL a la del logo que desees usar
             height: 100,
           ),
           const SizedBox(height: 20),
-          Text(
+          const Text(
             'Bienvenido a Finanzas Uleam',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
