@@ -3,6 +3,8 @@ import 'login_form.dart';
 import 'register_form.dart';
 
 class AuthScreen extends StatefulWidget {
+  const AuthScreen({super.key});
+
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
@@ -43,7 +45,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
           ],
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             // Acción para regresar
           },
@@ -52,7 +54,7 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
       body: TabBarView(
         controller: _tabController,
         children: [
-          LoginForm(),
+          const LoginForm(),
           RegisterForm(),
         ],
       ),

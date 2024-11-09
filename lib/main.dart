@@ -1,7 +1,6 @@
-import 'package:appfinanzas/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import './auth/auth_screen.dart';
-import './home/home_screen.dart';
+import 'home/home_screen.dart';
+import 'agregar_transaccion/agregar_transaccion.dart';
 
 void main() {
   runApp(const FinanzasApp());
@@ -14,9 +13,10 @@ class FinanzasApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const AuthScreen(),
+      home: const AuthScreen(), // Pantalla de autenticación como la principal
       routes: {
         '/home': (context) => const HomeScreen(),
+        '/agregar_transaccion': (context) => AgregarTransaccion(),
       },
     );
   }
@@ -67,27 +67,27 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            // Accion para regresar
+            // Acción para regresar
           },
         ),
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
-          _buildLoginForm(),
-          _buildRegisterForm(),
+          _buildLoginForm(context),
+          _buildRegisterForm(context),
         ],
       ),
     );
   }
 
-  Widget _buildLoginForm() {
+  Widget _buildLoginForm(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'Bienvenido a Finanzas Uleam',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
@@ -102,7 +102,9 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/home'); // Navega a la pantalla principal después del inicio de sesión
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
             ),
@@ -119,13 +121,13 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
     );
   }
 
-  Widget _buildRegisterForm() {
+  Widget _buildRegisterForm(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             'Bienvenido a Finanzapp',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
@@ -148,7 +150,9 @@ class _AuthScreenState extends State<AuthScreen> with SingleTickerProviderStateM
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/home'); // Navega a la pantalla principal después de registrarse
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
             ),
